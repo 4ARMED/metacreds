@@ -18,7 +18,7 @@ func main() {
 		fmt.Printf("Retrieve creds error: %v", err)
 	}
 
-	fmt.Printf("export AWS_ACCESS_KEY_ID=%v", creds.AccessKeyID)
-	fmt.Printf("export AWS_SECRET_ACCESS_KEY=%v", creds.SecretAccessKey)
-	fmt.Printf("export AWS_SESSION_TOKEN=%v", creds.SessionToken)
+	fmt.Printf("export AWS_ACCESS_KEY_ID=%v\n", creds.AccessKeyID)
+	fmt.Printf("export AWS_SECRET_ACCESS_KEY=%v\n", creds.SecretAccessKey)
+	fmt.Printf("export AWS_SESSION_TOKEN=%v\n", creds.SessionToken)
 }
