@@ -21,8 +21,8 @@ func main() {
 
 	region, _ := c.Region()
 
-	fmt.Printf("export AWS_REGION=%v\n", region)
-	fmt.Printf("export AWS_ACCESS_KEY_ID=%v\n", creds.AccessKeyID)
-	fmt.Printf("export AWS_SECRET_ACCESS_KEY=%v\n", creds.SecretAccessKey)
-	fmt.Printf("export AWS_SESSION_TOKEN=%v\n", creds.SessionToken)
+	fmt.Printf("export AWS_REGION=%v", region)
+	fmt.Printf("export AWS_ACCESS_KEY_ID=%v", creds.AccessKeyID)
+	fmt.Printf("export AWS_SECRET_ACCESS_KEY=%v", creds.SecretAccessKey)
+	fmt.Printf("export AWS_SESSION_TOKEN=%v", creds.SessionToken)
 }
