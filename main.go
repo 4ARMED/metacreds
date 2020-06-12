@@ -18,6 +18,4 @@ func main() {
 
 	profile := metacredsaws.GenerateProfile("pentest", region, creds)
 	fmt.Printf("\n%v\n", profile)
-
-	fmt.Println("\nAWS_CONFIG_FILE=$PWD/aws.config aws --profile=pentest <something>")
 }
