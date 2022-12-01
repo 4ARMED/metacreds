@@ -19,9 +19,15 @@ func TestGenerateProfile(t *testing.T) {
 	p := &ec2rolecreds.EC2RoleProvider{
 		Client: c,
 	}
-	creds, err := metacredsaws.Retrieve(c, p)
+	metadataCreds, err := metacredsaws.Retrieve(c, p)
 	if err != nil {
 		t.Errorf("%v", err)
+	}
+
+	creds := metacredsaws.Creds{
+		AccessKeyID:     metadataCreds.AccessKeyID,
+		SecretAccessKey: metadataCreds.SecretAccessKey,
+		SessionToken:    metadataCreds.SessionToken,
 	}
 
 	profile := metacredsaws.GenerateProfile("testing", "eu-west-1", creds)
