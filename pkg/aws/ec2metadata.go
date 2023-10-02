@@ -8,13 +8,17 @@ import (
 )
 
 // New sets up a new AWS session and provider
-func New() (*ec2metadata.EC2Metadata, *ec2rolecreds.EC2RoleProvider) {
-	c := ec2metadata.New(session.New())
+func New() (*ec2metadata.EC2Metadata, *ec2rolecreds.EC2RoleProvider, error) {
+	s, err := session.NewSession()
+	if err != nil {
+		return nil, nil, err
+	}
+	c := ec2metadata.New(s)
 	p := &ec2rolecreds.EC2RoleProvider{
 		Client: c,
 	}
 
-	return c, p
+	return c, p, nil
 }
 
 // Retrieve wraps aws-sdk-go Retrieve() credentials

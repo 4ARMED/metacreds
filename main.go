@@ -25,7 +25,11 @@ func main() {
 			log.Fatal(err)
 		}
 	} else {
-		c, p := metacredsaws.New()
+		c, p, err := metacredsaws.New()
+		if err != nil {
+			fmt.Printf("New session error: %v", err)
+			return
+		}
 		metadataCreds, err := metacredsaws.Retrieve(c, p)
 		if err != nil {
 			fmt.Printf("Retrieve creds error: %v", err)

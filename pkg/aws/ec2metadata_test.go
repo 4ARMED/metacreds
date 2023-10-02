@@ -55,7 +55,7 @@ func initTestServer(expireOn string) *httptest.Server {
 	credsResp.Expiration = expireOn
 	credsRespJson, err := json.Marshal(credsResp)
 	if err != nil {
-		fmt.Errorf("[!] that went wrong: %v", err)
+		fmt.Printf("[!] that went wrong: %v", err)
 	}
 
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -63,7 +63,7 @@ func initTestServer(expireOn string) *httptest.Server {
 		case "/latest/meta-data/iam/security-credentials/":
 			fmt.Fprintln(w, "RoleName")
 		case "/latest/meta-data/iam/security-credentials/RoleName":
-			fmt.Fprintf(w, string(credsRespJson))
+			fmt.Fprint(w, string(credsRespJson))
 		case "/latest/dynamic/instance-identity/document":
 			fmt.Fprint(w, instanceIdentityDocument)
 		default:
