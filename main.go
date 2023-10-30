@@ -47,5 +47,5 @@ func main() {
 	}
 
 	profile := metacredsaws.GenerateProfile("pentest", *region, creds)
-	fmt.Printf("\n%v\n", profile)
+	fmt.Printf("%v\n", profile)
 }
